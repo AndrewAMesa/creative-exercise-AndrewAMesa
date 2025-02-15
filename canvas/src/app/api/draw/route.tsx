@@ -5,7 +5,7 @@ let shape_num = 0;
 export async function GET() {
     shape_num++;
 
-    if (shape_num === 4) {
+    if (shape_num === 5) {
         shape_num = 0;
     }
 

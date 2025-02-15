@@ -51,6 +51,10 @@ export default function Home() {
           gradient.addColorStop(1, "purple");
           ctx.fillStyle = gradient;
           ctx.fillRect(x - 50, y - 25, 100, 50);
+        } else if (result.data === 4) {
+            ctx.font = "bold 30px Arial";
+            ctx.fillStyle = "orange";
+            ctx.fillText("AWESOME", x - 40, y);
         }
       } catch (error) {
         console.error("Error fetching drawing data:", error);
