@@ -1,5 +1,5 @@
 "use client";
-import { Head } from "next/document";
+import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
