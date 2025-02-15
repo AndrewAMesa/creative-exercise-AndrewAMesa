@@ -1,4 +1,5 @@
 "use client";
+import { Head } from "next/document";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
@@ -65,30 +66,40 @@ export default function Home() {
   }, [clickPosition]);
 
   return (
-      <div style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        height: "100vh",
-        backgroundColor: "black",
-        color: "white",
-        textAlign: "center"
-      }}>
-        <h1 style={{ marginBottom: "20px" }}>Click on the Canvas to Draw</h1>
-        <canvas
-            ref={canvasRef}
-            width={1000}
-            height={500}
-            style={{
-              backgroundColor: "white",
-              border: "1px solid black"
-            }}
-            onClick={(e) => {
-              const rect = e.currentTarget.getBoundingClientRect();
-              setClickPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-            }}
-        />
-      </div>
+      <>
+          <Head>
+              <title>Interactive Drawing App</title>
+              <meta name="description" content="Click on the canvas to draw different shapes and colors!" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+          </Head>
+
+          <div
+              style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "100vh",
+                  backgroundColor: "black",
+                  color: "white",
+                  textAlign: "center",
+              }}
+          >
+              <h1 style={{ marginBottom: "20px" }}>Click on the Canvas to Draw</h1>
+              <canvas
+                  ref={canvasRef}
+                  width={1000}
+                  height={500}
+                  style={{
+                      backgroundColor: "white",
+                      border: "1px solid black",
+                  }}
+                  onClick={(e) => {
+                      const rect = e.currentTarget.getBoundingClientRect();
+                      setClickPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+                  }}
+              />
+          </div>
+      </>
   );
 }
